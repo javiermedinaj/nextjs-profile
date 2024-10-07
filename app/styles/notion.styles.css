@@ -1,0 +1,77 @@
+.notion-like {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol';
+    line-height: 1.5;
+    color: #6a8299;
+  }
+  
+  .notion-like h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
+  
+  .notion-like h2 {
+    font-size: 1.875em;
+    font-weight: 600;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
+  
+  .notion-like h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+  }
+  
+  .notion-like p {
+    margin-bottom: 1em;
+  }
+  
+  .notion-like ul, .notion-like ol {
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+  }
+  
+  .notion-like li {
+    margin-bottom: 0.5em;
+  }
+  
+  .notion-like pre {
+    background-color: #484335;
+    padding: 1em;
+    border-radius: 3px;
+    overflow-x: auto;
+  }
+  
+  .notion-like code {
+    font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.85em;
+    padding: 0.2em 0.4em;
+    background-color: #585652;
+    color: aliceblue;
+    border-radius: 3px;
+  }
+  
+  .notion-like blockquote {
+    border-left: 3px solid #817070;
+    padding-left: 1em;
+    color: #6b6b6b;
+  }
+  
+  .notion-like table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  
+  .notion-like th, .notion-like td {
+    border: 1px solid #a48181;
+    padding: 0.5em;
+  }
+  
+  .notion-like th {
+    background-color: #a39c87;
+    font-weight: 600;
+  }
