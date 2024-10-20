@@ -1,44 +1,48 @@
 ---
-title: "How to web scraping improved my finances"
-excerpt: "Helps to reduce unnecesary expenses"
+title: "How Web Scraping Improved My Finances"
+excerpt: "Helps to reduce unnecessary expenses"
 date: "2024-08-31"
 author: "Javier Medina"
 ---
 
+## Introduction
 
+Web scraping is a powerful technique that has allowed me to automate data collection and make informed decisions when shopping. I developed a project using **JavaScript**, leveraging **Puppeteer** to scrape supermarket deals in my area, **Express** to create an API serving the data, and technologies like **GitHub Actions** for automation and **Azure** for backend deployment. The frontend was built with **Vite.js** and deployed on **Vercel**.
 
-**Introducción:**
-El web scraping es una técnica poderosa que me ha permitido automatizar la recopilación de datos y tomar decisiones informadas al momento de hacer compras. En mi caso, desarrollé un proyecto con **JavaScript**, utilizando **Puppeteer** para scrappear las ofertas de los supermercados de mi zona, **Express** para generar una API que sirviera los datos, y tecnologías como **GitHub Actions** para la automatización y **Azure** para el despliegue del backend. El frontend lo construí con **Vite.js** y lo desplegué en **Vercel**.
+This project not only helped improve my personal finances but also became a sellable idea for others or businesses looking to optimize their expenses.
 
-Este proyecto no solo me ayudó a mejorar mi economía personal, sino que también se convirtió en una idea vendible para otras personas o negocios que buscan optimizar sus gastos.
+## Project Details
 
-### **El proyecto en detalle**
+### 1. Web Scraping with Puppeteer
 
-1. **Web Scraping con Puppeteer**
-Mi proyecto comienza con la recolección automática de ofertas diarias de supermercados como Jumbo, Carrefour y Dia. Utilizo **Puppeteer**, una herramienta que me permite interactuar con las páginas web y extraer la información que necesito, como los precios y las promociones de los productos.
-2. **Backend con Express**
-Toda la información scrappeada se procesa y se expone a través de una API creada con **Express**. Esta API organiza los datos y los sirve en formato **JSON**, lo que facilita su uso tanto para mi aplicación como para otros servicios.
-3. **Automatización con GitHub Actions**
-La magia del proyecto está en la automatización. Utilizo **GitHub Actions** para ejecutar mis scrapers de forma automática cada 12 horas. De esta manera, siempre tengo la información más actualizada sin tener que hacerlo manualmente.
-4. **Despliegue en Azure**
-El backend lo despliego en **Azure**, lo que me proporciona estabilidad y escalabilidad a un costo muy bajo, aprovechando los créditos gratuitos que ofrecen a estudiantes. Esta solución en la nube me asegura que la API esté siempre disponible.
-5. **Frontend con Vite.js y Vercel**
-Para el frontend, decidí utilizar **Vite.js** por su rapidez y simplicidad. Toda la interfaz está desplegada en **Vercel**, lo que me permite tener una aplicación ligera y rápida para visualizar las ofertas.
+My project starts with the automatic collection of daily deals from supermarkets like Jumbo, Carrefour, and Dia. I use **Puppeteer**, a tool that allows me to interact with web pages and extract the information I need, such as product prices and promotions.
 
----
+### 2. Backend with Express
 
-### **¿Cómo me ayudó a mejorar mi economía?**
+All the scraped information is processed and exposed through an API created with **Express**. This API organizes the data and serves it in **JSON** format, making it easy to use for both my application and other services.
 
-Gracias a este proyecto, puedo ver todas las ofertas disponibles en los supermercados de mi zona en tiempo real. Esto me ha permitido:
+### 3. Automation with GitHub Actions
 
-- **Comparar precios** de manera rápida y eficiente.
-- **Tomar decisiones inteligentes** sobre dónde comprar para ahorrar dinero.
-- **Evitar desplazamientos innecesarios**, ya que sé exactamente a qué supermercado ir.
+The magic of the project lies in automation. I use **GitHub Actions** to run my scrapers automatically every 12 hours. This way, I always have the most up-to-date information without having to do it manually.
 
-Además, esta idea tiene el potencial de escalar. He considerado ofrecer este servicio a pequeños negocios que quieren optimizar sus compras o incluso a consumidores que buscan ahorrar en sus compras diarias. Lo que empezó como una herramienta personal se ha convertido en una propuesta de valor interesante para otros.
+### 4. Deployment on Azure
 
----
+I deploy the backend on **Azure**, which provides stability and scalability at a very low cost, taking advantage of the free credits offered to students. This cloud solution ensures that the API is always available.
 
-### **Conclusión**
+### 5. Frontend with Vite.js and Vercel
 
-El web scraping es una herramienta poderosa no solo para automatizar tareas, sino también para tomar decisiones más informadas en el día a día. Mi proyecto ha mejorado mi economía y me ha abierto las puertas a nuevas oportunidades para vender esta solución a otras personas.
+For the frontend, I chose **Vite.js** for its speed and simplicity. The entire interface is deployed on **Vercel**, allowing me to have a lightweight and fast application to visualize the deals.
+
+## How It Improved My Finances
+
+Thanks to this project, I can see all the available deals in the supermarkets in my area in real-time. This has allowed me to:
+
+- **Compare prices** quickly and efficiently.
+- **Make smart decisions** about where to shop to save money.
+- **Avoid unnecessary trips**, as I know exactly which supermarket to go to.
+
+Additionally, this idea has the potential to scale. I have considered offering this service to small businesses that want to optimize their purchases or even to consumers looking to save on their daily shopping. What started as a personal tool has become an interesting value proposition for others.
+
+## Conclusion
+
+Web scraping is a powerful tool not only for automating tasks but also for making more informed decisions in daily life. My project has improved my finances and opened doors to new opportunities to sell this solution to others.

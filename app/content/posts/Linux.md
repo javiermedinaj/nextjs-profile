@@ -1,102 +1,200 @@
 ---
-title: "A sample linux commands"
-excerpt: "Why Linux is easy."
+title: "Linux: It's Not As Difficult As You Think"
+excerpt: "A beginner's guide on how to use Linux."
 date: "2024-08-31"
 author: "Javier Medina"
 ---
 
-**⁠**
+## Introduction
 
-- **`ls -lh`**: Mostrar los permisos de archivos y directorios.
-- **`chmod ugo+rwx directory1`**: Dar permisos de lectura, escritura y ejecución al usuario, grupo y otros en el directorio.
-- **`chmod go-rwx directory1`**: Quitar permisos de lectura, escritura y ejecución al grupo y otros en el directorio.
-- **`chown user1 file1`**: Cambiar el propietario de un fichero.
-- **`chown -R user1 directory1`**: Cambiar el propietario de un directorio y sus contenidos de manera recursiva.
-- **`chgrp group1 file1`**: Cambiar el grupo de un fichero.
-- **`chown user1:group1 file1`**: Cambiar el usuario y el grupo propietario de un fichero.
-- **`find / -perm -u+s`**: Buscar todos los ficheros del sistema con el bit SUID configurado.
-- **`chmod u+s /bin/file1`**: Colocar el bit SUID en un fichero binario.
-- **`chmod u-s /bin/file1`**: Deshabilitar el bit SUID en un fichero binario.
-- **`chmod g+s /home/public`**: Colocar el bit SGID en un directorio.
-- **`chmod g-s /home/public`**: Deshabilitar el bit SGID en un directorio.
-- **`chmod o+t /home/public`**: Colocar el bit STICKY en un directorio (solo el propietario puede borrar archivos).
-- **`chmod o-t /home/public`**: Deshabilitar el bit STICKY en un directorio.
+Often, when people hear about Linux, they imagine an intimidating operating system meant only for advanced users. However, one of the great advantages of Linux is its simplicity once you get familiar with the basic commands. In this blog, we will demystify some of the most important concepts of Linux, demonstrating that it is easier to use than it seems.
 
-### Comandos de Procesos
+## 1. Basic File Management Commands
 
-- **`top`**: Mostrar las tareas del sistema que están utilizando más CPU.
-- **`ps -eafw`**: Mostrar las tareas del sistema.
-- **`ps -e -o pid,args --forest`**: Mostrar las tareas del sistema en formato jerárquico.
-- **`pstree`**: Mostrar un árbol de procesos del sistema.
-- **`kill -9 ID_Proceso`**: Terminar un proceso forzadamente.
-- **`kill -1 ID_Proceso`**: Recargar la configuración de un proceso.
-- **`lsof -p $$`**: Mostrar una lista de ficheros abiertos por un proceso.
-- **`lsof /home/user1`**: Mostrar una lista de ficheros abiertos en un directorio específico.
+Linux offers a powerful set of commands that allow you to manipulate files and directories efficiently.
 
-tipos de ls 
+- **`ls`** - List directory contents
+  - Description: Shows the files and directories in the current or specified directory
+  - Example:
+    ```bash
+    ls -la  # Shows files, including hidden ones, with details
+    ```
 
-Los tipos más comunes de ls incluyen:
+- **`cd`** - Change directory
+  - Description: Moves you from the current directory to another specified directory
+  - Example:
+    ```bash
+    cd /home/user/documents  # Go to the "documents" directory
+    ```
 
-• ls -l: Muestra una lista detallada con permisos, propietario, grupo, tamaño y fecha de modificación.
-• ls -a: Muestra todos los archivos, incluyendo los ocultos.
-• ls -R: Lista el contenido de los subdirectorios de forma recursiva.
+- **`cp`** - Copy files or directories
+  - Description: Creates a copy of a file or directory
+  - Example:
+    ```bash
+    cp file1.txt /home/user/backup/  # Copy file1.txt to the backup directory
+    ```
 
-chmod sirve para 
+- **`mv`** - Move or rename files
+  - Description: Moves a file to a different location or renames it
+  - Example:
+    ```bash
+    mv file.txt newfile.txt  # Rename file.txt to newfile.txt
+    ```
 
-modificar los permisos de archivos y directorios en sistemas Unix y Linux. Los permisos controlan quién puede leer, escribir o ejecutar un archivo. El comando chmod utiliza una notación numérica o simbólica para especificar los permisos. Por ejemplo, "chmod 755 archivo" otorga permisos de lectura, escritura y ejecución al propietario, y solo lectura y ejecución a otros usuarios.
+- **`rm`** - Remove files or directories
+  - Description: Deletes files or directories
+  - Example:
+    ```bash
+    rm file.txt  # Delete file.txt
+    ```
 
-tipos de numeros de permisos en chmod
+- **`mkdir`** - Make directory
+  - Description: Creates a new directory
+  - Example:
+    ```bash
+    mkdir new_folder  # Create a new directory named "new_folder"
+    ```
 
-Los números de permisos en chmod se basan en un sistema octal, donde cada dígito representa un conjunto de permisos para el propietario, grupo y otros usuarios. Los valores más comunes son:
+- **`rmdir`** - Remove directory
+  - Description: Removes an empty directory
+  - Example:
+    ```bash
+    rmdir empty_folder  # Remove the empty directory "empty_folder"
+    ```
 
-• 7 (rwx): Lectura, escritura y ejecución
-• 6 (rw-): Lectura y escritura
-• 5 (r-x): Lectura y ejecución
-• 4 (r--): Solo lectura
-• 3 (-wx): Escritura y ejecución
-• 2 (-w-): Solo escritura
-• 1 (--x): Solo ejecución
-• 0 (---): Sin permisos
+- **`touch`** - Create an empty file
+  - Description: Creates a new empty file or updates the timestamp of an existing file
+  - Example:
+    ```bash
+    touch newfile.txt  # Create a new empty file named "newfile.txt"
+    ```
 
-Por ejemplo, para dar permisos de lectura y escritura al propietario, y solo lectura al grupo y otros, se usaría el comando "chmod 644 archivo". Es importante tener en cuenta que el uso incorrecto de chmod puede afectar la seguridad del sistema, por lo que se debe utilizar con precaución. Además, algunos sistemas pueden requerir privilegios de superusuario para modificar ciertos permisos.
+- **`cat`** - Concatenate and display file content
+  - Description: Displays the content of a file or concatenates multiple files
+  - Example:
+    ```bash
+    cat file.txt  # Display the content of file.txt
+    ```
 
-Es importante destacar que el comando chmod también puede utilizarse con notación simbólica, lo que permite una mayor flexibilidad en la asignación de permisos. Por ejemplo, "chmod u+x archivo" agrega el permiso de ejecución para el propietario del archivo. Además, chmod puede aplicarse de forma recursiva a directorios y sus contenidos utilizando la opción -R, lo que es útil para modificar permisos en estructuras de directorios complejas.
+- **`grep`** - Search for patterns in files
+  - Description: Searches for specific patterns within files
+  - Example:
+    ```bash
+    grep "pattern" file.txt  # Search for "pattern" in file.txt
+    ```
 
-que es sudo
+## 2. File Permission Management
 
-Sudo (Superuser Do) es un comando en sistemas Unix y Linux que permite a los usuarios ejecutar programas con los privilegios de seguridad de otro usuario, por defecto el superusuario o root. Es una herramienta esencial para la administración del sistema, ya que permite realizar tareas que requieren permisos elevados sin necesidad de iniciar sesión como root. Sudo también proporciona un registro detallado de los comandos ejecutados, lo que mejora la seguridad y la capacidad de auditoría del sistema.
+Linux handles file permissions uniquely, allowing users to assign different access levels based on roles (owner, group, others).
 
-como crear un usuario en linux 
+- **`chmod`** - Change file permissions
+  - Description: Modifies the permissions of a file or directory
+  - Example:
+    ```bash
+    chmod 755 script.sh  # Give execution and read permissions to the owner
+    ```
+  - Permissions are represented by numbers:
+    - 4: Read (r)
+    - 2: Write (w)
+    - 1: Execute (x)
 
-Para ver los usuarios en Linux, puedes utilizar varios comandos:
+- **`chown`** - Change file owner
+  - Description: Changes the owner of a file or directory
+  - Example:
+    ```bash
+    sudo chown user:usergroup file.txt  # Change the owner to "user"
+    ```
 
-- **`cat /etc/passwd`**: Muestra todos los usuarios del sistema, incluyendo los usuarios del sistema y los usuarios normales.
-- **`getent passwd`**: Similar a cat /etc/passwd, pero también muestra usuarios de servicios de directorio como LDAP.
-- **`compgen -u`**: Muestra una lista simple de nombres de usuario.
-- **`who`**: Muestra los usuarios actualmente conectados al sistema.
-- **`w`**: Similar a who, pero proporciona más información sobre la actividad de los usuarios.
+## 3. Process Management
 
-Estos comandos proporcionan diferentes niveles de detalle y pueden ser útiles en diferentes situaciones de administración del sistema.
+Linux offers several tools to manage processes effectively.
 
-como matar un proceso con top
+- **`ps`** - View active processes
+  - Example:
+    ```bash
+    ps aux  # Show all running processes
+    ```
 
-Para matar un proceso usando top, sigue estos pasos:
+- **`top`** - Monitor system resource usage
+  - Example:
+    ```bash
+    top  # View CPU, memory usage, and more in real-time
+    ```
 
-1. Ejecuta el comando top para ver la lista de procesos en ejecución.
-2. Localiza el proceso que deseas terminar y anota su PID (ID del proceso).
-3. Presiona la tecla 'k' (kill) mientras estás en top.
-4. Ingresa el PID del proceso que quieres terminar cuando se te solicite.
-5. Confirma la acción presionando Enter.
+- **`kill`** - Terminate processes
+  - Example:
+    ```bash
+    kill -9 1234  # Terminate the process with PID 1234
+    ```
 
-un ejemplo de top 
+- **`fg`** - Bring a process to the foreground
+- **`bg`** - Send a process to the background
 
-ejemplo simplificado de la salida del comando top:
+## 4. Remote Connections with SSH
 
-PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
-    1 root      20   0  168944   9136   6716 S   0.0   0.2   0:02.33 systemd
-  954 root      20   0   44016   3728   3140 S   0.0   0.1   0:00.06 sshd
- 1256 user1     20   0   21924   2660   2340 R   0.3   0.1   0:00.01 top
+Linux is ideal for connecting remotely to other servers, and SSH is the standard protocol for doing so.
 
-Este ejemplo muestra los procesos en ejecución, sus PIDs, usuarios, uso de CPU y memoria, entre otra información útil para el monitoreo del sistema.
+- **`ssh`** - Connect to a remote server
+  - Example:
+    ```bash
+    ssh user@192.168.1.10  # Connect to a server at IP 192.168.1.10
+    ```
 
+- **`ssh-copy-id`** - Copy your public key to the server
+  - Example:
+    ```bash
+    ssh-copy-id user@host  # Copy your public key to the server
+    ```
 
+## 5. File Compression and Decompression
+
+Working with compressed files is a daily task in Linux. Some of the most common commands are:
+
+- **`tar`** - Compress or decompress files
+  - Examples:
+    ```bash
+    tar -czvf archive.tar.gz /path/to/folder  # Create a .tar.gz compressed file
+    tar -xzvf archive.tar.gz  # Decompress a .tar.gz file
+    ```
+
+## 6. System Information
+
+Knowing the status of your system is key in Linux. Some useful commands include:
+
+- **`df`** - Display disk usage
+  - Example:
+    ```bash
+    df -h  # Show disk usage in a readable format
+    ```
+
+- **`free`** - Display memory usage
+  - Example:
+    ```bash
+    free -m  # Show memory in MB
+    ```
+
+- **`uname`** - Display system information
+  - Example:
+    ```bash
+    uname -a  # Details about the kernel and operating system
+    ```
+
+## 7. Searching and Navigating the System
+
+Navigating and searching for files in Linux is easy thanks to these commands:
+
+- **`grep`** - Search for patterns within files
+  - Example:
+    ```bash
+    grep 'pattern' file.txt  # Search for the pattern within a file
+    ```
+
+- **`find`** - Search for files in the system
+  - Example:
+    ```bash
+    find /path -name 'filename'  # Search for a file in a specific directory
+    ```
+
+## Conclusion
+
+Despite the perception that Linux is complicated, this operating system becomes increasingly easy to use with practice. The commands mentioned above are just a sample of what you can do with Linux to improve your productivity. With a little time and patience, you will see that it is a system that offers you total control over your environment, making it a powerful option for any developer.

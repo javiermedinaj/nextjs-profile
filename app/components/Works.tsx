@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import librarie from '../assets/librarie.png'
-import videogif from '../assets/video.gif'
+//import videogif from '../assets/video.gif'
 import qr from '../assets/qr.png'
 
 export function Works() {
@@ -13,7 +13,7 @@ export function Works() {
     {
       title: 'Project Two',
       description: 'A brief description of Project Two.',
-      imageUrl: videogif,
+      imageUrl: qr,
     },
     {
       title: 'Project Three',
