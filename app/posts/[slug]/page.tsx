@@ -15,6 +15,7 @@ export async function generateStaticParams() {
   }))
 }
 
+
 const CustomLink = ({ href, children }: { href?: string, children: ReactNode }) => {
   const isExternal = href && href.startsWith('http')
   if (isExternal) {
