@@ -12,9 +12,9 @@ export function Header() {
           </Link>
         </div>
         <ul className="flex space-x-4">
-          <li><Link href="#" className="text-gray-500 hover:text-white">Email</Link></li>
+          <li><Link href="mailto:javier_j_medina@hotmail.com" target='_blank' rel="noopener noreferrer" className="text-gray-500 hover:text-white">Email</Link></li>
           <span className='text-gray-500'> · </span>
-          <li><Link href="#" className="text-gray-500 hover:text-white">GitHub</Link></li>
+          <li><Link href="https://github.com/javiermedinaj/nextjs-profile" target='_blank' rel="noopener noreferrer" className="text-gray-500 hover:text-white">GitHub</Link></li>
         </ul>
       </nav>
     </header>

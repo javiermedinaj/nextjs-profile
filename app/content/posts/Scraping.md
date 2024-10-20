@@ -1,7 +1,7 @@
 ---
 title: "How Web Scraping Improved My Finances"
 excerpt: "Helps to reduce unnecessary expenses"
-date: "2024-08-31"
+date: "2024-10-10"
 author: "Javier Medina"
 ---
 
@@ -42,6 +42,9 @@ Thanks to this project, I can see all the available deals in the supermarkets in
 - **Avoid unnecessary trips**, as I know exactly which supermarket to go to.
 
 Additionally, this idea has the potential to scale. I have considered offering this service to small businesses that want to optimize their purchases or even to consumers looking to save on their daily shopping. What started as a personal tool has become an interesting value proposition for others.
+If you wanna see the more details about my project, you can check out my [GitHub repository](https://github.com/javiermedinaj/market-scrapper).
+
+
 
 ## Conclusion
 
