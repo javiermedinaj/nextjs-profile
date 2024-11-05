@@ -1,6 +1,7 @@
 import { Profile } from "./components/Profile";
 import { Posts } from "./components/Posts";
 import { Works } from "./components/Works";
+import { SceneComponent } from "./components/SceneComponent";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <div className="container mx-auto px-4">
         <Profile />
         <Posts />
+        <SceneComponent />
         <Works />
       </div>
     </div>

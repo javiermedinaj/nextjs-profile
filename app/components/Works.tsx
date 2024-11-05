@@ -17,7 +17,7 @@ export function Works() {
     },
     {
       title: 'Supermarket Offers Scraper',
-      description: 'A JavaScript-based web scraper that collects daily offers from local supermarkets. This project helps streamline the process of tracking discounts and promotions, enabling users to make informed shopping decisions and save money by staying updated on the best deals in their area.',
+      description: 'A JavaScript-based web scraper that collects daily offers from local supermarkets. This project helps streamline the process of tracking discounts and promotions, enabling users to make informed shopping decisions and save money by staying updated on the best deals in their area. Updated every 12 hours',
       imageUrl: scraper,
     }    
   ];
