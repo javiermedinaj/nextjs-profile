@@ -11,9 +11,7 @@ export function Profile() {
       />
       <h1 className="text-2xl font-bold mb-2">Javier Medina</h1>
       <p className="text-gray-400 mb-2">Web development</p>
-      <p className="text-sm text-gray-500">
-        Learning and having fun
-      </p>
+      <p className="text-sm text-gray-500">Learning and having fun</p>
     </div>
   );
 }
