@@ -24,12 +24,10 @@ export function Footer() {
     <footer className="border-t border-zinc-800 mt-20">
       <div className="container mx-auto px-4 py-12">
         <div className="flex flex-col items-center space-y-8">
-          <h2 className="text-3xl font-bold text-center">Let's Connect</h2>
-          
-          <p className="text-gray-400 max-w-md text-center">
+          <h2 className="text-3xl font-bold text-center">Lets Connect</h2>
+           <p className="text-gray-400 max-w-md text-center">
             Feel free to reach out for collaborations or just a friendly hello
           </p>
-
           <div className="flex items-center gap-6">
             {socialLinks.map((link) => (
               <a

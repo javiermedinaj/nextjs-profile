@@ -14,6 +14,8 @@ export function Scene() {
   useEffect(() => {
     if (!mountRef.current) return;
 
+    const currentMount = mountRef.current; 
+
     const scene = new THREE.Scene();
     scene.background = new THREE.Color("#121212");
 
@@ -150,8 +152,8 @@ export function Scene() {
     return () => {
       window.removeEventListener("resize", handleResize);
       resizeObserver.disconnect();
-      if (mountRef.current) {
-        mountRef.current.removeChild(renderer.domElement);
+      if (currentMount) {
+        currentMount.removeChild(renderer.domElement);
       }
       scene.clear();
       renderer.dispose();

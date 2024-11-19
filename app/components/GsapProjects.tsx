@@ -1,7 +1,4 @@
 import Link from "next/link";
-import gif1 from "../assets/gif1.gif";
-import gif2 from "../assets/gif2.gif";
-import gif3 from "../assets/gif3.gif";
 import Image from "next/image";
 import { IoArrowBack } from "react-icons/io5";
 export function GsapProjects() {
@@ -12,7 +9,7 @@ export function GsapProjects() {
       features: ["Loader", "Image reveal", "Sequenced animations"],
       techStack: "React + GSAP ",
       role: "Animation",
-      imageUrl: gif1,
+      imageUrl: "https://res.cloudinary.com/dubr40tiq/image/upload/v1731975939/ja7rivcofgnun7jmkt8m.gif",
       url: "https://loader-gsap.vercel.app",
     },
     {
@@ -26,7 +23,7 @@ export function GsapProjects() {
       ],
       techStack: "React + GSAP + Lenis",
       role: "Animation",
-      imageUrl: gif2,
+      imageUrl: "https://res.cloudinary.com/dubr40tiq/image/upload/v1731975939/bs5uzbxxplvr8mql5f0x.gif",
       url: "https://agency-scroll.vercel.app/",
     },
     {
@@ -40,7 +37,7 @@ export function GsapProjects() {
       ],
       techStack: "React + GSAP + Lenis",
       role: "Animation",
-      imageUrl: gif3,
+      imageUrl: "https://res.cloudinary.com/dubr40tiq/image/upload/v1731975939/udy9zi4sm44jdqp0lf0u.gif",
       url: "https://gallery-button.vercel.app",
     },
   ];
@@ -62,16 +59,14 @@ export function GsapProjects() {
             className="bg-zinc-900 rounded-xl p-6 hover:shadow-xl"
           >
             <div className="relative aspect-video">
-              <Image
-                src={project.imageUrl}
-                alt={project.title}
-                fill
-                className="object-cover w-full"
-                loading="lazy"
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 190vw, 33vw"
-              />
+            <Image
+    src={project.imageUrl}
+    alt={project.title}
+    fill
+    unoptimized // Add this prop for GIFs
+    className="object-cover w-full"
+    loading="lazy"
+  />
             </div>
             <div className="mb-4">
               <h3 className="text-xl font-bold mb-3 mt-3">{project.title}</h3>
