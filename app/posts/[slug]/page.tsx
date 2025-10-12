@@ -68,9 +68,9 @@ export default async function Post({ params }: { params: { slug: string } }) {
       </article>
       <Link
         href="/"
-        className="inline-block mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+        className="inline-block mb-4 px-4 py-2 rounded-xl bg-blue-900 text-white hover:bg-blue-600 transition-colors"
       >
-        ← Back to Home
+        Back to Home
       </Link>
     </div>
   );

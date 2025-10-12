@@ -6,39 +6,43 @@ import ollamaOcr from "../assets/ollama-ocr.png";
 
 export function Works() {
   const projects = [
+     {
+      title: "Resumir YT",
+      description:
+        "Aplicación web que utiliza IA para generar resúmenes y prompts concisos de videos de YouTube",
+      imageUrl: summaryYT,
+      link: "https://github.com/javiermedinaj/summarize-yt",
+      prod:"https://summarize-ai-yt.vercel.app/"
+    },
+    {
+      title: "Scraper de Ofertas",
+      description:
+        "Web scraper que recopila ofertas de supermercados locales. Se actualiza cada 24 horas mediante GitHub Actions",
+      imageUrl: scraper,
+      link: "https://github.com/javiermedinaj/market-scrapper",
+      prod:"https://offers-ba.vercel.app/"
+    },
     {
       title: "Ollama OCR",
       description:
-        "Automates the conversion of image data into CSV format using Llama OCR and TableConvert API.",
+        "Automatiza la conversión de datos de imágenes a formato CSV utilizando Llama OCR y la API de TableConvert.",
       imageUrl: ollamaOcr,
       link: "https://github.com/javiermedinaj/ocr-md2csv",
+      prod:"https://ollama.com/models/llama-ocr"
     },
-    {
-      title: "Summarize YT",
-      description:
-        "A web application that leverages AI to generate concise summaries of YouTube videos (less than 15 minutes). ",
-      imageUrl: summaryYT,
-      link: "https://github.com/javiermedinaj/summarize-yt",
-    },
-    {
-      title: "Supermarket Offers Scraper",
-      description:
-        "A web scraper that collects offers from local supermarkets. Updated every 12 hours via Github Actions. Searchers in local has deployed in a Docker container.",
-      imageUrl: scraper,
-      link: "https://github.com/javiermedinaj/market-scrapper",
-    },
+   
+    
   ];
 
   return (
     <section className="py-10 px-4">
       <div className="max-w-12xl mx-auto">
         <h2 className="text-2xl md:text-4xl font-bold mb-6 text-center ">
-          Projects
+          Proyectos
         </h2>
         <p className="text-lg text-gray-400 mb-12 text-center max-w-3xl mx-auto leading-relaxed">
-          I enjoy building React applications that enhance user experiences by
-          leveraging a variety of tools and technologies. My approach focuses on
-          solving problems creatively and efficiently.
+          Disfruto creando proyectos que resuelven problemas reales, desarrollando aplicaciones del lado del cliente con React y del servidor con Go. 
+          También me apasiona automatizar tareas mediante web scraping y herramientas como N8N.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -79,9 +83,17 @@ export function Works() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group"
+                  className="mt-6 bg-blue-900 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group"
                 >
-                  View on Github
+                  Ver en GitHub
+                </Link>
+                <Link
+                  href={project.prod}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 bg-green-900 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group"
+                >
+                  Ver Demo
                 </Link>
               </div>
             </div>
@@ -90,14 +102,14 @@ export function Works() {
 
         <div className="text-center mt-16">
           <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-            I also like to create frontend templates using different types of
-            animation libraries, such as GSAP, Lenis, and Framer Motion.
+            También me gusta crear templates de frontend utilizando diferentes librerías de animación, 
+            como GSAP, Lenis y Framer Motion.
           </p>
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 hover:shadow-lg"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-900 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 hover:shadow-lg"
           >
-            View Templates
+            Ver Templates
           </Link>
         </div>
       </div>

@@ -83,10 +83,33 @@
 }
 
 .notion-like a {
-  color: #98c379; /* Color verde para enlaces */
+  color: #a0ec6b; /* Color verde para enlaces */
   text-decoration: none;
 }
+.notion-like .img-small {
+  width: 200px;
+  height: auto;
+}
 
+.notion-like .img-medium {
+  width: 400px;
+  height: auto;
+}
+
+.notion-like .img-large {
+  width: 600px;
+  height: auto;
+}
+
+.notion-like .img-full {
+  width: 100%;
+  height: auto;
+}
+
+.notion-like .img-center {
+  display: block;
+  margin: 1em auto;
+}
 .notion-like a:hover {
   text-decoration: underline;
 }

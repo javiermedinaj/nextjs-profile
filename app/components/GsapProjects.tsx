@@ -4,41 +4,51 @@ import { IoArrowBack } from "react-icons/io5";
 export function GsapProjects() {
   const projects = [
     {
+      title: "BafWeek Landing Page",
+      description:
+        "Landing page for BafWeek with scroll-triggered animations and interactive sections.",
+      features: ["Scroll-triggered animations", "Interactive sections"],
+      techStack: "React + GSAP + Framer motion",
+      role: "Animation",
+      imageUrl:
+        "https://res.cloudinary.com/dubr40tiq/image/upload/v1760228299/porti/gifcompres_lkvjeb.gif",
+      url: "https://bafweekints.vercel.app/",
+    },
+    {
+      title: "Weeding page",
+      description:
+        "A wedding invitation page with smooth scroll and animations.",
+      features: ["Smooth scroll", "Scroll-triggered animations"],
+      techStack: "React + Framer Motion",
+      role: "Animation",
+      imageUrl:
+        "https://res.cloudinary.com/dubr40tiq/image/upload/v1760228299/porti/benoit_fzx3ae.gif",
+      url: "https://astro-weeding.vercel.app/",
+    },
+    {
       title: "Loader animations",
       description: "Simple Loader animations with Gsap",
       features: ["Loader", "Image reveal", "Sequenced animations"],
       techStack: "React + GSAP ",
       role: "Animation",
-      imageUrl: "https://res.cloudinary.com/dubr40tiq/image/upload/v1731975939/ja7rivcofgnun7jmkt8m.gif",
+      imageUrl:
+        "https://res.cloudinary.com/dubr40tiq/image/upload/v1731975939/ja7rivcofgnun7jmkt8m.gif",
       url: "https://loader-gsap.vercel.app",
     },
     {
       title: "Infinite scroll agency website",
       description:
-        "An interactive website for a digital agency with sequenced animations, and interactive elements.",
+        "An interactive website for a digital agency with sequenced animations",
       features: [
         "Lenis scroll",
         "Sequenced animations",
-        "Interactive elements",
+        
       ],
       techStack: "React + GSAP + Lenis",
       role: "Animation",
-      imageUrl: "https://res.cloudinary.com/dubr40tiq/image/upload/v1731975939/bs5uzbxxplvr8mql5f0x.gif",
+      imageUrl:
+        "https://res.cloudinary.com/dubr40tiq/image/upload/v1731975939/bs5uzbxxplvr8mql5f0x.gif",
       url: "https://agency-scroll.vercel.app/",
-    },
-    {
-      title: "Infinite gallery with timeline animations",
-      description:
-        "A gallery of images with timeline animations, custom transitions, and scroll-based narratives.",
-      features: [
-        "Timeline animations",
-        "Custom transitions",
-        "Scroll-based narratives",
-      ],
-      techStack: "React + GSAP + Lenis",
-      role: "Animation",
-      imageUrl: "https://res.cloudinary.com/dubr40tiq/image/upload/v1731975939/udy9zi4sm44jdqp0lf0u.gif",
-      url: "https://gallery-button.vercel.app",
     },
   ];
 
@@ -52,21 +62,21 @@ export function GsapProjects() {
         experiences and smooth animations
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
         {projects.map((project, index) => (
           <div
             key={index}
             className="bg-zinc-900 rounded-xl p-6 hover:shadow-xl"
           >
             <div className="relative aspect-video">
-            <Image
-    src={project.imageUrl}
-    alt={project.title}
-    fill
-    unoptimized // Add this prop for GIFs
-    className="object-cover w-full"
-    loading="lazy"
-  />
+              <Image
+                src={project.imageUrl}
+                alt={project.title}
+                fill
+                unoptimized
+                className="object-cover w-full"
+                loading="lazy"
+              />
             </div>
             <div className="mb-4">
               <h3 className="text-xl font-bold mb-3 mt-3">{project.title}</h3>
@@ -98,10 +108,7 @@ export function GsapProjects() {
                     {project.techStack}
                   </span>
                 </div>
-                <div className="flex items-center text-sm">
-                  <span className="text-gray-500">Role:</span>
-                  <span className="ml-2 text-gray-300">{project.role}</span>
-                </div>
+               
                 <div className="flex items-center text-sm">
                   <span className="text-gray-500">Preview:</span>
                   <a
@@ -123,7 +130,6 @@ export function GsapProjects() {
           href="/"
           className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 hover:translate-x-[-4px] group"
         >
-          <IoArrowBack className="w-5 h-5 transition-transform group-hover:scale-110" />
           Back to Home
         </Link>
       </div>
