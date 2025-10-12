@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { IoArrowBack } from "react-icons/io5";
 export function GsapProjects() {
   const projects = [
     {
