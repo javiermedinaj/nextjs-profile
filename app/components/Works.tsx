@@ -3,113 +3,100 @@ import Link from "next/link";
 import scraper from "../assets/scraper.png";
 import summaryYT from "../assets/yt-summarize.png";
 import ollamaOcr from "../assets/ollama-ocr.png";
+import { HiArrowDown } from "react-icons/hi2";
 
 export function Works() {
   const projects = [
-     {
+    {
+      number: "01",
+      category: "AI Tool",
       title: "Resumir YT",
       description:
         "Aplicación web que utiliza IA para generar resúmenes y prompts concisos de videos de YouTube",
       imageUrl: summaryYT,
       link: "https://github.com/javiermedinaj/summarize-yt",
-      prod:"https://summarize-ai-yt.vercel.app/"
+      prod: "https://summarize-ai-yt.vercel.app/"
     },
     {
+      number: "02",
+      category: "Web Scraping",
       title: "Scraper de Ofertas",
       description:
         "Web scraper que recopila ofertas de supermercados locales. Se actualiza cada 24 horas mediante GitHub Actions",
       imageUrl: scraper,
       link: "https://github.com/javiermedinaj/market-scrapper",
-      prod:"https://offers-ba.vercel.app/"
+      prod: "https://offers-ba.vercel.app/"
     },
     {
+      number: "03",
+      category: "Automation",
       title: "Ollama OCR",
       description:
         "Automatiza la conversión de datos de imágenes a formato CSV utilizando Llama OCR y la API de TableConvert.",
       imageUrl: ollamaOcr,
       link: "https://github.com/javiermedinaj/ocr-md2csv",
-      prod:"https://ollama.com/models/llama-ocr"
+      prod: "https://ollama.com/models/llama-ocr"
     },
-   
-    
   ];
 
   return (
-    <section className="py-10 px-4">
-      <div className="max-w-12xl mx-auto">
-        <h2 className="text-2xl md:text-4xl font-bold mb-6 text-center ">
-          Proyectos
-        </h2>
-        <p className="text-lg text-gray-400 mb-12 text-center max-w-3xl mx-auto leading-relaxed">
-          Disfruto creando proyectos que resuelven problemas reales, desarrollando aplicaciones del lado del cliente con React y del servidor con Go. 
-          También me apasiona automatizar tareas mediante web scraping y herramientas como N8N.
-        </p>
+    <section id="work" className="py-20 bg-cream">
+      <div className="container mx-auto px-6">
+        {/* Section Header */}
+        <div className="flex items-center justify-between mb-12">
+          <div>
+            <span className="section-label">01 / Trabajos Seleccionados</span>
+            <h2 className="text-3xl font-medium text-dark mt-2">Casos</h2>
+          </div>
+          <HiArrowDown className="w-8 h-8 text-zinc-400" />
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Projects */}
+        <div className="space-y-0">
           {projects.map((project, index) => (
-            <div
+            <Link 
               key={index}
-              className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl overflow-hidden flex flex-col h-full transform hover:scale-[1.02] transition-all duration-300 hover:shadow-xl"
+              href={project.prod}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="case-study-card grid grid-cols-1 lg:grid-cols-3 gap-8 items-center group"
             >
-              <div className="relative overflow-hidden">
+              {/* Info */}
+              <div className="lg:col-span-1">
+                <div className="flex items-center gap-4 mb-3">
+                  <span className="text-zinc-400 font-mono">&quot;{project.number}&quot;</span>
+                  <span className="tag">{project.category}</span>
+                </div>
+                <h3 className="text-2xl font-medium text-dark mb-3 group-hover:text-zinc-600 transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-zinc-500 leading-relaxed">
+                  {project.description}
+                </p>
+              </div>
+
+              {/* Image */}
+              {/* <div className="lg:col-span-2 relative overflow-hidden rounded-xl">
                 <Image
                   src={project.imageUrl}
                   alt={project.title}
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover hover:scale-110 transition-transform duration-500"
+                  width={800}
+                  height={400}
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-              </div>
-
-              <div className="p-6 flex flex-col flex-grow">
-                <div className="flex-grow">
-                  <Link
-                    href={project.link}
-                    {...(project.link.startsWith("/")
-                      ? {}
-                      : { target: "_blank", rel: "noopener noreferrer" })}
-                    className="group"
-                  >
-                    <h3 className="text-xl font-semibold mb-3 text-white group-hover:text-blue-400 transition-colors">
-                      {project.title}
-                    </h3>
-                  </Link>
-                  <p className="text-gray-400 leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-
-                <Link
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 bg-blue-900 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group"
-                >
-                  Ver en GitHub
-                </Link>
-                <Link
-                  href={project.prod}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 bg-green-900 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group"
-                >
-                  Ver Demo
-                </Link>
-              </div>
-            </div>
+              </div> */}
+            </Link>
           ))}
         </div>
 
-        <div className="text-center mt-16">
-          <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
-            También me gusta crear templates de frontend utilizando diferentes librerías de animación, 
-            como GSAP, Lenis y Framer Motion.
-          </p>
+        {/* View All Button */}
+        <div className="text-center mt-12">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-900 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 hover:shadow-lg"
+            className="inline-flex items-center bg-black gap-2 border border-zinc-300 text-white px-8 py-3 rounded-full hover:bg-zinc-900 transition-colors"
           >
-            Ver Templates
+            Ver Todos los Proyectos
+            <HiArrowDown className="w-4 h-4" />
           </Link>
         </div>
       </div>

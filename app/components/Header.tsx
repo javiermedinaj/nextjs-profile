@@ -1,39 +1,56 @@
 import Link from "next/link";
-import logo from "../assets/j-removebg-preview.png";
-import Image from "next/image";
+
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-dark/80 border-b border-zinc-800">
-      <nav className="container mx-auto px-4 flex justify-between items-center">
-        <div>
-          <Link href="/">
-            <Image src={logo} alt="Logo" className="h-14 w-14" />
+    <header className="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-zinc-200">
+      <nav className="container mx-auto px-4 md:px-6 py-3 md:py-4">
+        <div className="flex md:hidden justify-between items-center">
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-6 h-6 bg-dark rounded-sm flex items-center justify-center">
+              <span className="text-white text-xs font-bold">JM</span>
+            </div>
+            <span className="font-medium text-dark text-sm">JAVIER.DEV</span>
           </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/#work" className="text-xs text-zinc-600 hover:text-dark transition-colors">
+              Trabajos
+            </Link>
+            <Link href="/#about" className="text-xs text-zinc-600 hover:text-dark transition-colors">
+              Acerca de
+            </Link>
+          </div>
         </div>
-        <ul className="flex space-x-4">
-          <li>
-            <Link
-              href="mailto:javier_j_medina@hotmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-white"
-            >
-              Email
+
+        <div className="hidden md:flex justify-between items-center">
+          <div className="flex items-center gap-8">
+            <Link href="/#work" className="text-sm text-zinc-600 hover:text-dark transition-colors">
+              Trabajos
             </Link>
-          </li>
-          <span className="text-gray-500"> · </span>
-          <li>
-            <Link
-              href="https://github.com/javiermedinaj/nextjs-profile"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-white"
-            >
-              GitHub
+            <Link href="/#writing" className="text-sm text-zinc-600 hover:text-dark transition-colors">
+              Escritos
             </Link>
-          </li>
-        </ul>
+          </div>
+          
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-6 h-6 bg-dark rounded-sm flex items-center justify-center">
+              <span className="text-white text-xs font-bold">JM</span>
+            </div>
+            <span className="font-medium text-dark">JAVIER.DEV</span>
+          </Link>
+
+          <div className="flex items-center gap-8">
+            <Link href="/#about" className="text-sm text-zinc-600 hover:text-dark transition-colors">
+              Acerca de
+            </Link>
+            <Link 
+              href="/#footer" 
+              className="text-sm text-zinc-600 hover:text-dark transition-colors"
+            >
+              Contacto
+            </Link>
+          </div>
+        </div>
       </nav>
     </header>
   );

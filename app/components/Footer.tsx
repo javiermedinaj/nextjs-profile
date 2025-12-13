@@ -1,50 +1,99 @@
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
+import { HiArrowTopRightOnSquare } from "react-icons/hi2";
+import Link from "next/link";
 
 const socialLinks = [
   {
-    icon: <FaLinkedin />,
+    icon: <FaLinkedin className="w-4 h-4" />,
     href: "https://www.linkedin.com/in/javiermedinaj/",
     label: "LinkedIn"
   },
   {
-    icon: <FaGithub />,
+    icon: <FaGithub className="w-4 h-4" />,
     href: "https://github.com/javiermedinaj",
     label: "GitHub"
   },
   {
-    icon: <MdOutlineEmail />,
+    icon: <MdOutlineEmail className="w-4 h-4" />,
     href: "mailto:javier_j_medina@hotmail.com",
     label: "Email"
   }
 ];
 
+const sitemapLinks = [
+  { label: "Trabajos", href: "#work" },
+  { label: "Lecturas", href: "#writing" },
+  { label: "Acerca de", href: "#about" },
+  { label: "Contacto", href: "mailto:javier_j_medina@hotmail.com" },
+];
+
 export function Footer() {
   return (
-    <footer className="border-t border-zinc-800 mt-20">
-      <div className="container mx-auto px-4 py-12">
-        <div className="flex flex-col items-center space-y-8">
-          <h2 className="text-3xl font-bold text-center">Lets Connect</h2>
-           <p className="text-gray-400 max-w-md text-center">
-            Feel free to reach out for collaborations or just a friendly hello
-          </p>
-          <div className="flex items-center gap-6">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                aria-label={link.label}
-              >
-                <span className="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800 group-hover:bg-zinc-700 transition-colors">
-                  {link.icon}
-                </span>
-              </a>
-            ))}
+    <footer id="footer" className="bg-dark text-white">
+      <div className="container mx-auto px-6 py-20 text-center border-b border-zinc-800">
+        <h2 className="text-4xl md:text-5xl font-light mb-6">
+          Creemos algo
+        </h2>
+        <Link 
+          href="mailto:javier_j_medina@hotmail.com"
+          className="inline-flex items-center gap-2 bg-white text-dark px-8 py-4 rounded-full hover:bg-zinc-200 transition-colors font-medium"
+        >
+          Comenzar un Proyecto
+        </Link>
+      </div>
+
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-6 h-6 bg-white rounded-sm flex items-center justify-center">
+                <span className="text-dark text-xs font-bold">JM</span>
+              </div>
+              <span className="font-medium">JAVIER.DEV</span>
+            </div>
+            <p className="text-zinc-400 text-sm leading-relaxed max-w-xs">
+              Desarrollador web enfocado en React, Go y herramientas de automatización.
+            </p>
+          </div>
+
+          <div>
+            <h4 className="text-xs tracking-widest text-zinc-500 uppercase mb-4">Mapa del Sitio</h4>
+            <ul className="space-y-3">
+              {sitemapLinks.map((link) => (
+                <li key={link.label}>
+                  <Link 
+                    href={link.href}
+                    className="text-zinc-400 hover:text-white transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-xs tracking-widest text-zinc-500 uppercase mb-4">Redes Sociales</h4>
+            <ul className="space-y-3">
+              {socialLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors text-sm group"
+                  >
+                    {link.label}
+                    <HiArrowTopRightOnSquare className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
+
+      
       </div>
     </footer>
   );

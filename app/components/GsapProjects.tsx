@@ -65,7 +65,7 @@ export function GsapProjects() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="bg-zinc-900 rounded-xl p-6 hover:shadow-xl"
+            className="bg-blue-100 rounded-xl p-6 hover:shadow-xl"
           >
             <div className="relative aspect-video">
               <Image
@@ -79,7 +79,7 @@ export function GsapProjects() {
             </div>
             <div className="mb-4">
               <h3 className="text-xl font-bold mb-3 mt-3">{project.title}</h3>
-              <p className="text-gray-400 text-sm mb-4">
+              <p className="text-black text-sm mb-4">
                 {project.description}
               </p>
 
@@ -91,7 +91,7 @@ export function GsapProjects() {
                   {project.features.map((feature, i) => (
                     <li
                       key={i}
-                      className="text-gray-400 text-sm flex items-center"
+                      className="text-gray-900 text-sm flex items-center"
                     >
                       <span className="mr-2">•</span>
                       {feature}
@@ -103,7 +103,7 @@ export function GsapProjects() {
               <div className="space-y-2">
                 <div className="flex items-center text-sm">
                   <span className="text-gray-500">Tech Stack:</span>
-                  <span className="ml-2 text-gray-300">
+                  <span className="ml-2 text-gray-900">
                     {project.techStack}
                   </span>
                 </div>
@@ -114,7 +114,7 @@ export function GsapProjects() {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-2 text-blue-400"
+                    className="ml-2 text-blue-900"
                   >
                     {project.url}
                   </a>
@@ -127,10 +127,9 @@ export function GsapProjects() {
       <div className="text-center mt-12">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 hover:translate-x-[-4px] group"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-black hover:bg-zinc-800 text-white font-medium rounded-full transition-all duration-300 hover:translate-x-[-4px] group"
         >
-          Back to Home
-        </Link>
+Volver        </Link>
       </div>
     </div>
   );

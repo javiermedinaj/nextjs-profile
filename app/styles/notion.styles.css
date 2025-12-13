@@ -1,7 +1,225 @@
+/* Post Content Styles */
+.post-content {
+  color: #1a1a1a;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  line-height: 1.8;
+}
+
+/* Headings */
+.post-content h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+.post-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2a2a2a;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.post-content h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #3a3a3a;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Paragraphs */
+.post-content p {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  color: #333333;
+  text-align: justify;
+}
+
+/* Lists */
+.post-content ul,
+.post-content ol {
+  margin-bottom: 1.5rem;
+  margin-left: 2rem;
+}
+
+.post-content li {
+  margin-bottom: 0.5rem;
+  color: #333333;
+}
+
+.post-content li strong {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* Links */
+.post-content a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.post-content a:hover {
+  color: #0052a3;
+  border-bottom-color: #0052a3;
+}
+
+/* Strong/Bold */
+.post-content strong {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.post-content em {
+  font-style: italic;
+  color: #555555;
+}
+
+/* Code */
+.post-content code {
+  background-color: #f0f0f0;
+  color: #d63384;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9em;
+}
+
+.post-content pre {
+  background-color: #1a1a1a;
+  color: #e5e5e5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #0066cc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post-content pre code {
+  background-color: transparent;
+  color: #e5e5e5;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.95em;
+}
+
+/* Images */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+/* Blockquotes */
+.post-content blockquote {
+  border-left: 4px solid #0066cc;
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  color: #555555;
+  font-style: italic;
+  background-color: #f9f9f9;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+}
+
+/* Divider/HR */
+.post-content hr {
+  border: none;
+  border-top: 2px solid #e5e5e5;
+  margin: 2rem 0;
+}
+
+/* Tables */
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.post-content th {
+  background-color: #f0f0f0;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #1a1a1a;
+  border-bottom: 2px solid #d5d5d5;
+}
+
+.post-content td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  color: #333333;
+}
+
+.post-content tr:last-child td {
+  border-bottom: none;
+}
+
+/* Utility classes for specific sections */
+.post-disclaimer {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  margin: 2rem 0;
+  color: #333333;
+}
+
+.post-disclaimer strong {
+  color: #1a1a1a;
+}
+
+.post-intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555555;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .post-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .post-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .post-content p {
+    font-size: 0.95rem;
+  }
+
+  .post-content code {
+    font-size: 0.85em;
+  }
+
+  .post-content pre {
+    padding: 1rem;
+    border-radius: 6px;
+  }
+}
+
+/* Old notion-like for backwards compatibility */
 .notion-like {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, 'Apple Color Emoji', Arial, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol';
   line-height: 1.5;
-  color: #abb2bf; /* Color de texto principal */
+  color: #abb2bf;
 }
 
 .notion-like h1 {
@@ -9,7 +227,7 @@
   font-weight: 700;
   margin-top: 1em;
   margin-bottom: 0.5em;
-  color: #61afef; /* Color azul claro para encabezados */
+  color: #61afef;
 }
 
 .notion-like h2 {
@@ -17,7 +235,7 @@
   font-weight: 600;
   margin-top: 1em;
   margin-bottom: 0.5em;
-  color: #61afef; /* Color azul claro para encabezados */
+  color: #61afef;
 }
 
 .notion-like h3 {
@@ -25,7 +243,7 @@
   font-weight: 600;
   margin-top: 1em;
   margin-bottom: 0.5em;
-  color: #61afef; /* Color azul claro para encabezados */
+  color: #61afef;
 }
 
 .notion-like p {
@@ -42,7 +260,7 @@
 }
 
 .notion-like pre {
-  background-color: #282c34; /* Fondo oscuro para bloques de código */
+  background-color: #282c34;
   padding: 1em;
   border-radius: 6px;
   overflow-x: auto;

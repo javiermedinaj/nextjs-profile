@@ -1,77 +1,89 @@
 import { getPostBySlug, getAllPosts } from "@/app/utils/posts";
 import { notFound } from "next/navigation";
-import ReactMarkdown from "react-markdown";
-import rehypeRaw from "rehype-raw";
-import rehypeSanitize from "rehype-sanitize";
-import remarkGfm from "remark-gfm";
 import "../../styles/notion.styles.css";
 import Link from "next/link";
-import { ReactNode } from "react";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
-  const posts = getAllPosts(["slug"]);
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  const posts = getAllPosts();
+  return posts.map((post) => {
+    return {
+      slug: post.slug,
+    };
+  });
 }
 
-const CustomLink = ({
-  href,
-  children,
-}: {
-  href?: string;
-  children: ReactNode;
-}) => {
-  const isExternal = href && href.startsWith("http");
-  if (isExternal) {
-    return (
-      <a href={href} target="_blank" rel="noopener noreferrer">
-        {children}
-      </a>
-    );
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
+  
+  if (!post) {
+    return {
+      title: "Artículo no encontrado",
+    };
   }
-  return <a href={href}>{children}</a>;
-};
 
-export default async function Post({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug, [
-    "title",
-    "date",
-    "slug",
-    "author",
-    "content",
-    "excerpt",
-  ]);
+  return {
+    title: post.title,
+    description: post.excerpt || "Lee el artículo completo",
+  };
+}
+
+export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
 
   if (!post) {
     notFound();
   }
 
   return (
-    <div className="px-16">
-      <article className="notion-like">
-        <h1>{post.title}</h1>
-        <p className="text-gray-600 mb-2">{post.excerpt}</p>
-        <div className="text-sm text-gray-500 mb-4">
-          <p>Date: {post.date}</p>
-          <p>Author: {post.author}</p>
-        </div>
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw, rehypeSanitize]}
-          components={{
-            a: CustomLink as any,
-          }}
-        >
-          {post.content}
-        </ReactMarkdown>
-      </article>
-      <Link
-        href="/"
-        className="inline-block mb-4 px-4 py-2 rounded-xl bg-blue-900 text-white hover:bg-blue-600 transition-colors"
-      >
-        Back to Home
-      </Link>
-    </div>
+    <article className="min-h-screen bg-cream">
+      <div className="container mx-auto px-4 lg:px-6 py-12 lg:py-16 max-w-4xl">
+        {/* Header */}
+        <header className="mb-8 lg:mb-12">
+          <div className="flex items-center gap-2 text-xs text-zinc-500 mb-4">
+            <Link href="/#writing" className="hover:text-dark transition-colors">
+              Escritos
+            </Link>
+            <span>/</span>
+            <span className="text-dark font-medium truncate">{post.title}</span>
+          </div>
+          
+          <h1 className="text-3xl lg:text-5xl font-bold text-dark mb-4 leading-tight">
+            {post.title}
+          </h1>
+          
+          <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4 text-sm text-zinc-500 border-b border-zinc-200 pb-6">
+            <time dateTime={post.date}>{post.date}</time>
+            <span className="hidden lg:inline">•</span>
+            <span>Por {post.author}</span>
+            {post.excerpt && (
+              <>
+                <span className="hidden lg:inline">•</span>
+                <span className="text-zinc-600">{post.excerpt}</span>
+              </>
+            )}
+          </div>
+        </header>
+
+        {/* Content */}
+        <div 
+          className="post-content prose prose-sm lg:prose-base max-w-none"
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        />
+
+        {/* Navigation */}
+        <footer className="mt-12 lg:mt-16 pt-8 border-t border-zinc-200">
+          <Link
+            href="/#writing"
+            className="inline-flex items-center gap-2 text-sm font-medium text-dark hover:text-zinc-600 transition-colors"
+          >
+            
+            Volver a Escritos
+          </Link>
+        </footer>
+      </div>
+    </article>
   );
 }
