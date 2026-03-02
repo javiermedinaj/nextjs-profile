@@ -8,26 +8,35 @@ interface LoaderProps {
 }
 
 export function Loader({ children }: LoaderProps) {
+  // Start with the loader visible on both server and client
   const [loading, setLoading] = useState(true);
-  const [shouldShowLoader, setShouldShowLoader] = useState(false);
+  const [shouldShowLoader, setShouldShowLoader] = useState(true);
 
   useEffect(() => {
-    // Verificar si ya se mostró el loader en esta sesión
-    const hasShownLoader = sessionStorage.getItem("loaderShown");
-    
+    // Guard against environments without sessionStorage
+    let hasShownLoader = false;
+    try {
+      hasShownLoader = !!sessionStorage.getItem("loaderShown");
+    } catch {
+      hasShownLoader = false;
+    }
+
     if (hasShownLoader) {
-      // Ya se mostró, no mostrar de nuevo
       setLoading(false);
       setShouldShowLoader(false);
-    } else {
-      // Primera vez en esta sesión, mostrar loader
-      setShouldShowLoader(true);
-      const timer = setTimeout(() => {
-        setLoading(false);
-        sessionStorage.setItem("loaderShown", "true");
-      }, 1500);
-      return () => clearTimeout(timer);
+      return;
     }
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+      try {
+        sessionStorage.setItem("loaderShown", "true");
+      } catch {
+        // ignore
+      }
+    }, 1500);
+
+    return () => clearTimeout(timer);
   }, []);
 
   // Si no debe mostrar loader, renderizar children directamente
