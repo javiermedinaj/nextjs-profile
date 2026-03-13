@@ -7,7 +7,7 @@ import { Loader } from "./components/Loader";
 export default function Home() {
   return (
     <Loader>
-      <div className="min-h-screen bg-dark text-foreground noise-bg">
+      <div className="min-h-screen text-foreground">
         <Profile />
         <Works />
         <Posts />

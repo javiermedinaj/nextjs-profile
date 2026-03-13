@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/20">
+    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
       <nav className="container mx-auto px-4 md:px-6 py-3 md:py-4">
         {/* Mobile Nav */}
         <div className="flex md:hidden justify-between items-center">
@@ -15,10 +15,10 @@ export function Header() {
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/#work" className="text-xs text-muted hover:text-accent transition-colors font-mono font-bold">
-              Trabajos
+              Work
             </Link>
             <Link href="/#about" className="text-xs text-muted hover:text-accent transition-colors font-mono font-bold">
-              Acerca de
+              About
             </Link>
           </div>
         </div>
@@ -31,14 +31,14 @@ export function Header() {
               href="/#work" 
               className="text-sm text-muted hover:text-accent transition-all duration-300 font-medium relative group"
             >
-              Trabajos
+              Work
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link 
               href="/#writing" 
               className="text-sm text-muted hover:text-accent transition-all duration-300 font-medium relative group"
             >
-              Escritos
+              Journal
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
             </Link>
           </div>
@@ -57,14 +57,14 @@ export function Header() {
               href="/#about" 
               className="text-sm text-muted hover:text-accent transition-all duration-300 font-medium relative group"
             >
-              Acerca de
+              About
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link 
               href="/#footer" 
               className="text-sm bg-accent text-dark px-5 py-2 rounded-full hover:bg-accent-soft transition-all duration-300 font-bold shadow-lg shadow-accent/20 hover:shadow-accent/40 hover:scale-105"
             >
-              Contacto
+              Contact
             </Link>
           </div>
         </div>

@@ -9,50 +9,48 @@ export function Works() {
   const projects = [
     {
       number: "01",
-      category: "AI Tool",
+      category: "Intelligent Interface",
       title: "Resumir YT",
       description:
-        "Aplicación web que utiliza IA para generar resúmenes y prompts concisos de videos de YouTube",
+        "Aplicación web que utiliza IA para sintetizar contenido largo en ideas accionables. Pensada para equipos que necesitan tomar decisiones rápidas sin perder matices.",
       imageUrl: summaryYT,
       link: "https://github.com/javiermedinaj/summarize-yt",
       prod: "https://summarize-ai-yt.vercel.app/",
     },
     {
       number: "02",
-      category: "Web Scraping",
+      category: "Data System",
       title: "Scraper de Ofertas",
       description:
-        "Web scraper que recopila ofertas de supermercados locales. Se actualiza cada 24 horas mediante GitHub Actions",
+        "Sistema de scraping que convierte información dispersa de supermercados locales en datos estructurados, actualizados cada 24 horas mediante automatizaciones en GitHub Actions.",
       imageUrl: scraper,
       link: "https://github.com/javiermedinaj/market-scrapper",
-      prod: "https://offers-ba.vercel.app/",
+      prod: "https://github.com/javiermedinaj/market-scrapper",
     },
     {
       number: "03",
       category: "Automation",
       title: "Ollama OCR",
       description:
-        "Automatiza la conversión de datos de imágenes a formato CSV utilizando Llama OCR y la API de TableConvert.",
+        "Pipeline automatizado que transforma imágenes en datasets utilizables, combinando Llama OCR con la API de TableConvert para acelerar tareas repetitivas de captura de datos.",
       imageUrl: ollamaOcr,
       link: "https://github.com/javiermedinaj/ocr-md2csv",
-      prod: "https://ollama.com/models/llama-ocr",
+      prod: "https://github.com/javiermedinaj/ocr-md2csv",
     },
   ];
 
   return (
-    <section id="work" className="py-20 lg:py-32 bg-dark">
+    <section id="work" className="py-20 lg:py-32 bg-background">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="flex items-start justify-between mb-16 lg:mb-24">
           <div className="flex-1">
             <span className="section-label text-sm lg:text-base mb-3 block">
-              Trabajos Seleccionados
+              WORK
             </span>
-            <h2 className="font-display text-4xl lg:text-7xl font-extrabold text-foreground mt-4">
-              Casos de{" "}
-              <span className="bg-gradient-to-r from-accent to-accent-soft bg-clip-text text-transparent">
-                Estudio
-              </span>
+            <h2 className="font-display text-4xl lg:text-6xl font-extrabold text-foreground mt-4 leading-tight">
+              Selected cases for
+              <span className="block text-accent">the intelligence age</span>
             </h2>
           </div>
         </div>

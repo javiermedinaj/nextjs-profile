@@ -10,41 +10,63 @@ import { TbArrowUpRight } from "react-icons/tb";
 export function Profile() {
   return (
     <>
-      <section className="relative flex flex-col lg:grid lg:grid-cols-3 min-h-[60vh] lg:min-h-[85vh] overflow-hidden">
-        {/* Hero Image */}
-        <div className="lg:col-span-2 relative bg-surface overflow-hidden min-h-[50vh] lg:min-h-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-dark/90 z-10" />
-          <div className="absolute inset-0 bg-gradient-to-r from-dark/50 via-transparent to-transparent z-10" />
-          <Image
-            src={Bg}
-            alt="Javier Medina"
-            fill
-            className="object-cover opacity-60"
-            priority
-          />
+      <section className="relative flex flex-col lg:flex-row min-h-[60vh] lg:min-h-[80vh] border-b border-border bg-background">
+        {/* Hero Copy */}
+        <div className="flex-1 px-6 lg:px-16 py-16 lg:py-24 flex flex-col justify-center gap-8">
+          <div>
+            <span className="inline-flex items-center gap-2 px-3 py-1 text-xs lg:text-sm font-mono font-bold bg-accent/10 text-accent border border-accent/30 rounded-full">
+              INDEPENDENT DEVELOPER FOR THE INTELLIGENCE AGE
+            </span>
+          </div>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-tight">
+            <span className="block">I design and build</span>
+            <span className="block text-accent">intelligent digital systems</span>
+          </h1>
+          <p className="text-base lg:text-lg text-muted max-w-xl leading-relaxed">
+            Soy Javier Medina, desarrollador web que une estrategia, diseño y código
+            para crear productos claros, escalables y listos para marcas que operan
+            en la nueva era de la inteligencia.
+          </p>
+          <div className="flex flex-wrap gap-3 text-xs lg:text-sm font-mono uppercase tracking-wide">
+            <span className="tag">React</span>
+            <span className="tag">Next.js</span>
+            <span className="tag">Go</span>
+            <span className="tag">TypeScript</span>
+            <span className="tag">Automation</span>
+          </div>
+        </div>
 
-          {/* Accent Overlay */}
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-accent/10 to-transparent z-10" />
-
-          <div className="absolute bottom-8 left-6 lg:bottom-16 lg:left-12 z-20 max-w-3xl">
-            <div className="mb-4 lg:mb-6">
-              <span className="inline-block px-3 py-1 text-xs lg:text-sm font-mono font-bold bg-accent/20 text-accent border border-accent/30 rounded backdrop-blur-sm">
-                AVAILABLE FOR WORK
-              </span>
-            </div>
-            <h1 className="font-display text-5xl md:text-6xl lg:text-8xl font-extrabold text-white leading-[0.95] tracking-tight mb-4 lg:mb-6">
-              <span className="block glow-text">Desarrollador</span>
-              <span className="block text-accent">Web</span>
-            </h1>
-            <p className="text-base lg:text-xl text-zinc-300 max-w-xl mb-6 lg:mb-8 leading-relaxed">
-              Construyendo experiencias digitales que combinan código limpio con
-              diseño excepcional
+        {/* Hero Visual */}
+        <div className="flex-1 relative border-t lg:border-t-0 lg:border-l border-border bg-surface flex items-center justify-center px-6 lg:px-12 py-12 lg:py-0">
+          <div className="absolute inset-6 border border-dashed border-border/80 pointer-events-none" />
+          <div className="relative z-10 max-w-md space-y-6">
+            <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted">
+              PROFILE SNAPSHOT
             </p>
-            <div className="flex flex-wrap gap-2 lg:gap-3">
-              <span className="tag text-xs lg:text-sm">React</span>
-              <span className="tag text-xs lg:text-sm">Next.js</span>
-              <span className="tag text-xs lg:text-sm">Go</span>
-              <span className="tag text-xs lg:text-sm">TypeScript</span>
+            <Image
+              src={Bg}
+              alt="Visual abstracto de Javier Medina"
+              className="rounded-2xl object-cover w-full h-56 lg:h-72"
+            />
+            <div className="grid grid-cols-3 gap-4 text-sm">
+              <div className="space-y-1">
+                <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted">
+                  LOCATION
+                </p>
+                <p className="font-medium">Buenos Aires, AR</p>
+              </div>
+              <div className="space-y-1">
+                <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted">
+                  FOCUS
+                </p>
+                <p className="font-medium">Frontend & Automation</p>
+              </div>
+              <div className="space-y-1">
+                <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted">
+                  STATUS
+                </p>
+                <p className="font-medium text-accent">Available</p>
+              </div>
             </div>
           </div>
         </div>
@@ -98,7 +120,7 @@ export function Profile() {
       </div>
 
       {/* About Section */}
-      <section id="about" className="py-20 lg:py-32 bg-dark">
+      <section id="about" className="py-20 lg:py-32 bg-background">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-20 lg:mb-28">
             <h2 className="font-display text-5xl md:text-7xl lg:text-9xl font-extrabold text-foreground tracking-tight leading-none">

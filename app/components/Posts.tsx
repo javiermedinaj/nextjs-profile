@@ -16,7 +16,7 @@ export function Posts() {
           {/* Left - Header */}
           <div className="flex flex-col justify-start">
             <div className="flex items-center gap-4 mb-6">
-              <span className="section-label text-sm lg:text-base">Diario</span>
+              <span className="section-label text-sm lg:text-base">NEWS & NOTES</span>
               <HiOutlineBookmark className="w-5 h-5 lg:w-6 lg:h-6 text-accent" />
             </div>
             <h2 className="font-display text-4xl lg:text-6xl font-extrabold text-foreground leading-tight">
@@ -33,8 +33,8 @@ export function Posts() {
           {/* Right - Description & Posts */}
           <div className="flex flex-col">
             <p className="text-base lg:text-lg text-zinc-400 leading-relaxed mb-10 lg:mb-12">
-              Reflexiones sobre desarrollo web, automatización y las
-              herramientas que utilizo diariamente. Explorando cómo construir{" "}
+              Reflexiones sobre desarrollo web, automatización y herramientas que uso
+              a diario. Un archivo vivo de cómo voy afinando procesos para construir{" "}
               <span className="text-accent font-semibold">software mejor</span>.
             </p>
 

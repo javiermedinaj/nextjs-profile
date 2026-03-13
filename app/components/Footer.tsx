@@ -32,7 +32,7 @@ export function Footer() {
   return (
     <footer
       id="footer"
-      className="bg-dark text-foreground border-t border-border"
+      className="bg-background text-foreground border-t border-border"
     >
       {/* CTA Section */}
       <div className="container mx-auto px-6 lg:px-12 py-24 lg:py-32 text-center border-b border-border">
