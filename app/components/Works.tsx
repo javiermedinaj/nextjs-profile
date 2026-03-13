@@ -3,7 +3,7 @@ import Link from "next/link";
 import scraper from "../assets/scraper.png";
 import summaryYT from "../assets/yt-summarize.png";
 import ollamaOcr from "../assets/ollama-ocr.png";
-import { HiArrowDown } from "react-icons/hi2";
+import { HiArrowDown, HiArrowUpRight } from "react-icons/hi2";
 
 export function Works() {
   const projects = [
@@ -15,7 +15,7 @@ export function Works() {
         "Aplicación web que utiliza IA para generar resúmenes y prompts concisos de videos de YouTube",
       imageUrl: summaryYT,
       link: "https://github.com/javiermedinaj/summarize-yt",
-      prod: "https://summarize-ai-yt.vercel.app/"
+      prod: "https://summarize-ai-yt.vercel.app/",
     },
     {
       number: "02",
@@ -25,7 +25,7 @@ export function Works() {
         "Web scraper que recopila ofertas de supermercados locales. Se actualiza cada 24 horas mediante GitHub Actions",
       imageUrl: scraper,
       link: "https://github.com/javiermedinaj/market-scrapper",
-      prod: "https://offers-ba.vercel.app/"
+      prod: "https://offers-ba.vercel.app/",
     },
     {
       number: "03",
@@ -35,68 +35,90 @@ export function Works() {
         "Automatiza la conversión de datos de imágenes a formato CSV utilizando Llama OCR y la API de TableConvert.",
       imageUrl: ollamaOcr,
       link: "https://github.com/javiermedinaj/ocr-md2csv",
-      prod: "https://ollama.com/models/llama-ocr"
+      prod: "https://ollama.com/models/llama-ocr",
     },
   ];
 
   return (
-    <section id="work" className="py-20 bg-cream">
-      <div className="container mx-auto px-6">
+    <section id="work" className="py-20 lg:py-32 bg-dark">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="flex items-center justify-between mb-12">
-          <div>
-            <span className="section-label">01 / Trabajos Seleccionados</span>
-            <h2 className="text-3xl font-medium text-dark mt-2">Casos</h2>
+        <div className="flex items-start justify-between mb-16 lg:mb-24">
+          <div className="flex-1">
+            <span className="section-label text-sm lg:text-base mb-3 block">
+              Trabajos Seleccionados
+            </span>
+            <h2 className="font-display text-4xl lg:text-7xl font-extrabold text-foreground mt-4">
+              Casos de{" "}
+              <span className="bg-gradient-to-r from-accent to-accent-soft bg-clip-text text-transparent">
+                Estudio
+              </span>
+            </h2>
           </div>
-          <HiArrowDown className="w-8 h-8 text-zinc-400" />
         </div>
 
-        {/* Projects */}
+        {/* Projects Grid */}
         <div className="space-y-0">
           {projects.map((project, index) => (
-            <Link 
+            <Link
               key={index}
               href={project.prod}
               target="_blank"
               rel="noopener noreferrer"
-              className="case-study-card grid grid-cols-1 lg:grid-cols-3 gap-8 items-center group"
+              className="case-study-card grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center group"
             >
-              {/* Info */}
-              <div className="lg:col-span-1">
-                <div className="flex items-center gap-4 mb-3">
-                  <span className="text-zinc-400 font-mono">&quot;{project.number}&quot;</span>
-                  <span className="tag">{project.category}</span>
-                </div>
-                <h3 className="text-2xl font-medium text-dark mb-3 group-hover:text-zinc-600 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-zinc-500 leading-relaxed">
-                  {project.description}
-                </p>
+              {/* Number & Category */}
+              <div className="lg:col-span-2 flex lg:flex-col items-center lg:items-start gap-3">
+                <span className="font-display text-5xl lg:text-7xl font-black text-accent/20 group-hover:text-accent/40 transition-colors">
+                  {project.number}
+                </span>
+                <span className="tag text-xs lg:text-sm">
+                  {project.category}
+                </span>
               </div>
 
-              {/* Image */}
-              {/* <div className="lg:col-span-2 relative overflow-hidden rounded-xl">
+              {/* Content */}
+              <div className="lg:col-span-6 space-y-4">
+                <h3 className="font-display text-3xl lg:text-5xl font-bold text-foreground group-hover:text-accent transition-colors leading-tight">
+                  {project.title}
+                </h3>
+                <p className="text-muted text-base lg:text-lg leading-relaxed max-w-2xl">
+                  {project.description}
+                </p>
+                <div className="flex items-center gap-3 text-accent font-mono text-sm">
+                  <span>Ver proyecto</span>
+                  <HiArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </div>
+              </div>
+
+              {/* Image - Optional, currently commented in original */}
+              {/* <div className="lg:col-span-4 relative overflow-hidden rounded-2xl border border-border">
                 <Image
                   src={project.imageUrl}
                   alt={project.title}
                   width={800}
                   height={400}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-48 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div> */}
+
+              {/* Accent Line */}
+              <div className="hidden lg:block lg:col-span-4">
+                <div className="h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent group-hover:via-accent transition-colors" />
+              </div>
             </Link>
           ))}
         </div>
 
         {/* View All Button */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-16 lg:mt-24">
           <Link
             href="/projects"
-            className="inline-flex items-center bg-black gap-2 border border-zinc-300 text-white px-8 py-3 rounded-full hover:bg-zinc-900 transition-colors"
+            className="inline-flex items-center gap-3 bg-surface text-foreground border-2 border-accent px-10 py-5 rounded-full hover:bg-accent hover:text-dark transition-all duration-300 font-bold text-base lg:text-lg shadow-lg hover:shadow-accent/30 hover:scale-105 transform"
           >
             Ver Todos los Proyectos
-            <HiArrowDown className="w-4 h-4" />
+            <HiArrowDown className="w-5 h-5" />
           </Link>
         </div>
       </div>

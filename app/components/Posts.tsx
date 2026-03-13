@@ -7,41 +7,67 @@ export function Posts() {
   const posts = getAllPosts();
 
   return (
-    <section id="writing" className="py-16 lg:py-20 bg-white">
-      <div className="container mx-auto px-4 lg:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+    <section
+      id="writing"
+      className="py-20 lg:py-32 bg-surface border-t border-border"
+    >
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-16">
+          {/* Left - Header */}
           <div className="flex flex-col justify-start">
-            <div className="flex items-center gap-3 lg:gap-4 mb-4">
-              <span className="section-label">02 / Diario</span>
-              
+            <div className="flex items-center gap-4 mb-6">
+              <span className="section-label text-sm lg:text-base">Diario</span>
+              <HiOutlineBookmark className="w-5 h-5 lg:w-6 lg:h-6 text-accent" />
             </div>
-            <h2 className="text-2xl lg:text-3xl font-medium text-dark">Misceláneas</h2>
-            <div className="flex items-center gap-2 mt-4">
-              <HiOutlineBookmark className="w-4 h-4 lg:w-5 lg:h-5 text-zinc-400" />
-              <span className="text-xs text-zinc-500 font-mono">[ARCHIVO]</span>
+            <h2 className="font-display text-4xl lg:text-6xl font-extrabold text-foreground leading-tight">
+              Misceláneas
+            </h2>
+            <div className="flex items-center gap-3 mt-6 text-muted font-mono text-sm">
+              <span className="px-3 py-1 bg-accent/10 border border-accent/20 rounded text-accent font-bold">
+                [ARCHIVO]
+              </span>
+              <span>{posts.length} posts</span>
             </div>
           </div>
-          
+
+          {/* Right - Description & Posts */}
           <div className="flex flex-col">
-            <p className="text-sm lg:text-base text-zinc-500 leading-relaxed mb-6 lg:mb-8">
-              Reflexiones sobre desarrollo web, automatización y las herramientas que utilizo diariamente.
-              Explorando cómo construir software mejor.
+            <p className="text-base lg:text-lg text-zinc-400 leading-relaxed mb-10 lg:mb-12">
+              Reflexiones sobre desarrollo web, automatización y las
+              herramientas que utilizo diariamente. Explorando cómo construir{" "}
+              <span className="text-accent font-semibold">software mejor</span>.
             </p>
-            
+
             <div className="space-y-0">
-              {posts.map((post) => (
-                <Link 
-                  key={post.slug} 
+              {posts.map((post, index) => (
+                <Link
+                  key={post.slug}
                   href={`/posts/${post.slug}`}
-                  className="flex items-start justify-between py-3 lg:py-4 border-b border-zinc-200 group hover:bg-zinc-50 transition-colors -mx-2 lg:-mx-4 px-2 lg:px-4"
+                  className="flex items-start justify-between py-5 lg:py-6 border-b border-border/50 group hover:border-accent/30 transition-all duration-300 relative"
                 >
-                  <div className="flex-1 min-w-0">
-                    <span className="text-xs text-zinc-400 block mb-1">{post.date}</span>
-                    <h3 className="text-sm lg:text-base text-dark font-medium group-hover:text-zinc-600 transition-colors line-clamp-2">
+                  {/* Hover Effect */}
+                  <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                  <div className="flex-1 min-w-0 relative z-10">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-xs text-accent font-mono font-bold">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-xs text-muted font-mono">
+                        {post.date}
+                      </span>
+                    </div>
+                    <h3 className="text-base lg:text-lg text-foreground font-semibold group-hover:text-accent transition-colors line-clamp-2">
                       {post.title}
                     </h3>
+                    {post.excerpt && (
+                      <p className="text-sm text-muted mt-2 line-clamp-1">
+                        {post.excerpt}
+                      </p>
+                    )}
                   </div>
-                  <HiArrowRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-1 transition-transform flex-shrink-0 ml-3" />
+
+                  <HiArrowRight className="w-5 h-5 text-muted group-hover:text-accent group-hover:translate-x-2 transition-all flex-shrink-0 ml-4 relative z-10" />
                 </Link>
               ))}
             </div>

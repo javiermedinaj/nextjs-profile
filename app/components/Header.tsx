@@ -3,49 +3,66 @@ import Link from "next/link";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-zinc-200">
+    <header className="sticky top-0 z-50 bg-dark/80 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/20">
       <nav className="container mx-auto px-4 md:px-6 py-3 md:py-4">
+        {/* Mobile Nav */}
         <div className="flex md:hidden justify-between items-center">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-dark rounded-sm flex items-center justify-center">
-              <span className="text-white text-xs font-bold">JM</span>
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-7 h-7 bg-gradient-to-br from-accent to-accent-soft rounded-lg flex items-center justify-center shadow-lg shadow-accent/20 group-hover:shadow-accent/40 transition-all group-hover:scale-110">
+              <span className="text-dark text-xs font-black">JM</span>
             </div>
-            <span className="font-medium text-dark text-sm">JAVIER.DEV</span>
+            <span className="font-display font-bold text-foreground text-sm tracking-tight">JAVIER.DEV</span>
           </Link>
           <div className="flex items-center gap-4">
-            <Link href="/#work" className="text-xs text-zinc-600 hover:text-dark transition-colors">
+            <Link href="/#work" className="text-xs text-muted hover:text-accent transition-colors font-mono font-bold">
               Trabajos
             </Link>
-            <Link href="/#about" className="text-xs text-zinc-600 hover:text-dark transition-colors">
+            <Link href="/#about" className="text-xs text-muted hover:text-accent transition-colors font-mono font-bold">
               Acerca de
             </Link>
           </div>
         </div>
 
+        {/* Desktop Nav */}
         <div className="hidden md:flex justify-between items-center">
+          {/* Left Links */}
           <div className="flex items-center gap-8">
-            <Link href="/#work" className="text-sm text-zinc-600 hover:text-dark transition-colors">
+            <Link 
+              href="/#work" 
+              className="text-sm text-muted hover:text-accent transition-all duration-300 font-medium relative group"
+            >
               Trabajos
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
             </Link>
-            <Link href="/#writing" className="text-sm text-zinc-600 hover:text-dark transition-colors">
+            <Link 
+              href="/#writing" 
+              className="text-sm text-muted hover:text-accent transition-all duration-300 font-medium relative group"
+            >
               Escritos
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
             </Link>
           </div>
           
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-dark rounded-sm flex items-center justify-center">
-              <span className="text-white text-xs font-bold">JM</span>
+          {/* Center Logo */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-8 h-8 bg-gradient-to-br from-accent to-accent-soft rounded-lg flex items-center justify-center shadow-lg shadow-accent/20 group-hover:shadow-accent/40 transition-all group-hover:scale-110 group-hover:rotate-3">
+              <span className="text-dark text-xs font-black">JM</span>
             </div>
-            <span className="font-medium text-dark">JAVIER.DEV</span>
+            <span className="font-display font-bold text-foreground tracking-tight text-base">JAVIER.DEV</span>
           </Link>
 
+          {/* Right Links */}
           <div className="flex items-center gap-8">
-            <Link href="/#about" className="text-sm text-zinc-600 hover:text-dark transition-colors">
+            <Link 
+              href="/#about" 
+              className="text-sm text-muted hover:text-accent transition-all duration-300 font-medium relative group"
+            >
               Acerca de
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
             </Link>
             <Link 
               href="/#footer" 
-              className="text-sm text-zinc-600 hover:text-dark transition-colors"
+              className="text-sm bg-accent text-dark px-5 py-2 rounded-full hover:bg-accent-soft transition-all duration-300 font-bold shadow-lg shadow-accent/20 hover:shadow-accent/40 hover:scale-105"
             >
               Contacto
             </Link>
