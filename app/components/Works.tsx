@@ -10,7 +10,7 @@ export function Works() {
     {
       number: "01",
       category: "Intelligent Interface",
-      title: "Resumir YT",
+      title: "Summarize YT",
       description:
         "Aplicación web que utiliza IA para sintetizar contenido largo en ideas accionables. Pensada para equipos que necesitan tomar decisiones rápidas sin perder matices.",
       imageUrl: summaryYT,
@@ -20,7 +20,7 @@ export function Works() {
     {
       number: "02",
       category: "Data System",
-      title: "Scraper de Ofertas",
+      title: "CI/CD Automation",
       description:
         "Sistema de scraping que convierte información dispersa de supermercados locales en datos estructurados, actualizados cada 24 horas mediante automatizaciones en GitHub Actions.",
       imageUrl: scraper,

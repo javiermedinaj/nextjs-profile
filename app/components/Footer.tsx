@@ -42,9 +42,9 @@ export function Footer() {
           </span>
           <h2 className="font-display text-4xl md:text-6xl lg:text-8xl font-extrabold mb-8 leading-tight">
             Creemos algo{" "}
-            <span className="bg-gradient-to-r from-accent to-accent-soft bg-clip-text text-transparent">
+            {/*<span className="bg-gradient-to-r from-accent to-accent-soft bg-clip-text text-transparent">
               increíble
-            </span>
+            </span>*/}
           </h2>
           <p className="text-muted text-lg lg:text-xl mb-12 max-w-2xl mx-auto">
             ¿Tienes un proyecto en mente? Hablemos sobre cómo puedo ayudarte a

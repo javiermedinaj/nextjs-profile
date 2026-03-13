@@ -20,12 +20,14 @@ export function Profile() {
           </div>
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-tight">
             <span className="block">I design and build</span>
-            <span className="block text-accent">intelligent digital systems</span>
+            <span className="block text-accent">
+              intelligent digital systems
+            </span>
           </h1>
           <p className="text-base lg:text-lg text-muted max-w-xl leading-relaxed">
-            Soy Javier Medina, desarrollador web que une estrategia, diseño y código
-            para crear productos claros, escalables y listos para marcas que operan
-            en la nueva era de la inteligencia.
+            Soy Javier Medina, desarrollador web que une estrategia, diseño y
+            código para crear productos claros, escalables y listos para marcas
+            que operan en la nueva era de la inteligencia.
           </p>
           <div className="flex flex-wrap gap-3 text-xs lg:text-sm font-mono uppercase tracking-wide">
             <span className="tag">React</span>
@@ -72,7 +74,7 @@ export function Profile() {
         </div>
 
         {/* Stats Cards */}
-        <div className="flex flex-row lg:flex-col bg-surface border-l border-border">
+        {/*<div className="flex flex-row lg:flex-col bg-surface border-l border-border">
           <div className="stat-card flex-1 py-6 lg:py-8 border-r lg:border-r-0 stagger-item">
             <MdOutlineWorkOutline className="w-7 h-7 lg:w-10 lg:h-10 text-accent mb-3 lg:mb-4" />
             <span className="stat-number text-4xl lg:text-6xl">10+</span>
@@ -92,7 +94,7 @@ export function Profile() {
               Tecnologías
             </span>
           </div>
-        </div>
+        </div>*/}
       </section>
 
       {/* Marquee */}
