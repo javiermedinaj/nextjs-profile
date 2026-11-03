@@ -1,74 +1,74 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 
+const NAV_LINKS = [
+  { href: "/#work", label: "work" },
+  { href: "/#cloud", label: "cloud" },
+  { href: "/#skills", label: "skills" },
+  { href: "/#writing", label: "notes" },
+  { href: "/projects", label: "projects" },
+  { href: "/#contact", label: "contact" },
+];
 
 export function Header() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50">
-      <nav className="container mx-auto px-4 md:px-6 py-3 md:py-4">
-        {/* Mobile Nav */}
-        <div className="flex md:hidden justify-between items-center">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-7 h-7 bg-gradient-to-br from-accent to-accent-soft rounded-lg flex items-center justify-center shadow-lg shadow-accent/20 group-hover:shadow-accent/40 transition-all group-hover:scale-110">
-              <span className="text-dark text-xs font-black">JM</span>
-            </div>
-            <span className="font-display font-bold text-foreground text-sm tracking-tight">JAVIER.DEV</span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <Link href="/#work" className="text-xs text-muted hover:text-accent transition-colors font-mono font-bold">
-              Work
-            </Link>
-            <Link href="/#about" className="text-xs text-muted hover:text-accent transition-colors font-mono font-bold">
-              About
-            </Link>
-          </div>
-        </div>
+    <header className="sticky top-0 z-50 border-b border-border bg-[#0d1117]/90 backdrop-blur-md">
+      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
+        <Link href="/" className="flex items-center gap-2 text-sm">
+          <span className="text-terminal-green">$</span>
+          <span className="text-foreground">~/javier</span>
+          <span className="terminal-dot ml-1 bg-terminal-green animate-pulse" />
+        </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex justify-between items-center">
-          {/* Left Links */}
-          <div className="flex items-center gap-8">
-            <Link 
-              href="/#work" 
-              className="text-sm text-muted hover:text-accent transition-all duration-300 font-medium relative group"
+        <nav className="hidden items-center gap-5 text-xs text-muted md:flex">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="transition-colors hover:text-accent"
             >
-              Work
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+              {link.label}
             </Link>
-            <Link 
-              href="/#writing" 
-              className="text-sm text-muted hover:text-accent transition-all duration-300 font-medium relative group"
-            >
-              Journal
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
-            </Link>
-          </div>
-          
-          {/* Center Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 bg-gradient-to-br from-accent to-accent-soft rounded-lg flex items-center justify-center shadow-lg shadow-accent/20 group-hover:shadow-accent/40 transition-all group-hover:scale-110 group-hover:rotate-3">
-              <span className="text-dark text-xs font-black">JM</span>
-            </div>
-            <span className="font-display font-bold text-foreground tracking-tight text-base">JAVIER.DEV</span>
-          </Link>
+          ))}
+        </nav>
 
-          {/* Right Links */}
-          <div className="flex items-center gap-8">
-            <Link 
-              href="/#about" 
-              className="text-sm text-muted hover:text-accent transition-all duration-300 font-medium relative group"
-            >
-              About
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
-            </Link>
-            <Link 
-              href="/#footer" 
-              className="text-sm bg-accent text-dark px-5 py-2 rounded-full hover:bg-accent-soft transition-all duration-300 font-bold shadow-lg shadow-accent/20 hover:shadow-accent/40 hover:scale-105"
-            >
-              Contact
-            </Link>
-          </div>
-        </div>
-      </nav>
+        <button
+          type="button"
+          className="text-xs text-muted transition-colors hover:text-accent md:hidden"
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          onClick={() => setOpen((current) => !current)}
+        >
+          {open ? "[ close ]" : "[ menu ]"}
+        </button>
+      </div>
+
+      {open && (
+        <nav
+          id="mobile-nav"
+          className="border-t border-border bg-surface px-4 py-4 md:hidden"
+        >
+          <ul className="flex flex-col gap-3 text-sm">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="flex items-center gap-2 text-muted transition-colors hover:text-accent"
+                  onClick={() => setOpen(false)}
+                >
+                  <span className="text-terminal-green">›</span>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </header>
   );
 }

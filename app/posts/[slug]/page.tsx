@@ -1,26 +1,26 @@
 import { getPostBySlug, getAllPosts } from "@/app/utils/posts";
 import { notFound } from "next/navigation";
-import "../../styles/notion.styles.css";
 import Link from "next/link";
 import { Metadata } from "next";
+import { TerminalWindow } from "../../components/TerminalWindow";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
-  return posts.map((post) => {
-    return {
-      slug: post.slug,
-    };
-  });
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
-  
+
   if (!post) {
-    return {
-      title: "Artículo no encontrado",
-    };
+    return { title: "Artículo no encontrado" };
   }
 
   return {
@@ -29,7 +29,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function Post({ params }: { params: Promise<{ slug: string }> }) {
+export default async function Post({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
 
@@ -38,52 +42,43 @@ export default async function Post({ params }: { params: Promise<{ slug: string 
   }
 
   return (
-    <article className="min-h-screen bg-cream">
-      <div className="container mx-auto px-4 lg:px-6 py-12 lg:py-16 max-w-4xl">
-        {/* Header */}
-        <header className="mb-8 lg:mb-12">
-          <div className="flex items-center gap-2 text-xs text-zinc-500 mb-4">
-            <Link href="/#writing" className="hover:text-dark transition-colors">
-              Escritos
-            </Link>
-            <span>/</span>
-            <span className="text-dark font-medium truncate">{post.title}</span>
-          </div>
-          
-          <h1 className="text-3xl lg:text-5xl font-bold text-dark mb-4 leading-tight">
+    <article className="mx-auto max-w-3xl px-4 py-10 md:py-14">
+      <Link href="/#writing" className="text-xs text-muted hover:text-accent">
+        cd ../notes
+      </Link>
+
+      <TerminalWindow title={`~/notes/${post.slug}.md`} className="mt-4">
+        <header className="border-b border-border pb-6">
+          <p className="text-xs text-terminal-green">
+            $ cat ~/notes/{post.slug}.md
+          </p>
+          <h1 className="mt-3 text-2xl leading-tight text-foreground md:text-3xl">
             {post.title}
           </h1>
-          
-          <div className="flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4 text-sm text-zinc-500 border-b border-zinc-200 pb-6">
+          <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-muted">
             <time dateTime={post.date}>{post.date}</time>
-            <span className="hidden lg:inline">•</span>
-            <span>Por {post.author}</span>
+            <span>·</span>
+            <span>{post.author}</span>
             {post.excerpt && (
               <>
-                <span className="hidden lg:inline">•</span>
-                <span className="text-zinc-600">{post.excerpt}</span>
+                <span>·</span>
+                <span>{post.excerpt}</span>
               </>
             )}
           </div>
         </header>
 
-        {/* Content */}
-        <div 
-          className="post-content prose prose-sm lg:prose-base max-w-none"
+        <div
+          className="post-content mt-6"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
-        {/* Navigation */}
-        <footer className="mt-12 lg:mt-16 pt-8 border-t border-zinc-200">
-          <Link
-            href="/#writing"
-            className="inline-flex items-center gap-2 text-sm font-medium text-dark hover:text-zinc-600 transition-colors"
-          >
-            
-            Volver a Escritos
+        <footer className="mt-10 border-t border-border pt-4">
+          <Link href="/#writing" className="link-terminal text-sm">
+            cd ../notes
           </Link>
         </footer>
-      </div>
+      </TerminalWindow>
     </article>
   );
 }

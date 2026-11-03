@@ -18,8 +18,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Javier Medina",
-  description: "Desarrollador Web",
+  title: "Javier Medina — Frontend & Cloud Developer",
+  description:
+    "Frontend, cloud y automatización. React, Next.js, Go, AWS S3, EC2, Lambda y Bedrock.",
 };
 
 export default function RootLayout({
@@ -30,10 +31,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased`}
       >
         <Header />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
